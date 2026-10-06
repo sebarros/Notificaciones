@@ -1,4 +1,5 @@
 package cl.bitss.Notificaciones.model;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,6 +19,12 @@ public class Notificacion {
     @Positive(message = "El usuarioId debe ser mayor que 0")
     private Long usuarioId;
 
+    @Positive(message = "El pedidoId debe ser mayor que 0")
+    private Long pedidoId;
+
+    @Positive(message = "El videojuegoId debe ser mayor que 0")
+    private Long videojuegoId;
+
     @NotBlank(message = "El tipo es obligatorio")
     @Size(max = 30, message = "El tipo no puede superar los 30 caracteres")
     private String tipo;
@@ -33,8 +40,10 @@ public class Notificacion {
     public Notificacion() {
     }
 
-    public Notificacion(Long usuarioId, String tipo, String mensaje, String estado) {
+    public Notificacion(Long usuarioId, Long pedidoId, Long videojuegoId, String tipo, String mensaje, String estado) {
         this.usuarioId = usuarioId;
+        this.pedidoId = pedidoId;
+        this.videojuegoId = videojuegoId;
         this.tipo = tipo;
         this.mensaje = mensaje;
         this.estado = estado;
@@ -54,6 +63,22 @@ public class Notificacion {
 
     public void setUsuarioId(Long usuarioId) {
         this.usuarioId = usuarioId;
+    }
+
+    public Long getPedidoId() {
+        return pedidoId;
+    }
+
+    public void setPedidoId(Long pedidoId) {
+        this.pedidoId = pedidoId;
+    }
+
+    public Long getVideojuegoId() {
+        return videojuegoId;
+    }
+
+    public void setVideojuegoId(Long videojuegoId) {
+        this.videojuegoId = videojuegoId;
     }
 
     public String getTipo() {

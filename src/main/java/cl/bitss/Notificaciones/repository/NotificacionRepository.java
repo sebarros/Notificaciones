@@ -1,4 +1,5 @@
 package cl.bitss.Notificaciones.repository;
+
 import cl.bitss.Notificaciones.model.Notificacion;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
